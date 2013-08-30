@@ -13,14 +13,16 @@ object ArmDef extends Build {
     organization := "com.jsuereth",
     name := "scala-arm",
     version := "1.3-SNAPSHOT",
-    scalaVersion := "2.9.1",
+    scalaVersion := "2.10.2",
     crossScalaVersions := Seq("2.9.1"),
     resolvers += "junit interface repo" at "https://repository.jboss.org/nexus/content/repositories/scala-tools-releases",
     resolvers += "java.net repo" at "http://download.java.net/maven/2/",
     libraryDependencies ++= dependencies,
     autoCompilerPlugins := true,
     addContinuations,
-    scalacOptions += "-P:continuations:enable"
+    scalacOptions += "-P:continuations:enable",
+    libraryDependencies in ThisBuild += compilerPlugin("test.org" %% "printplugin" % "1.0"),
+    scalacOptions in ThisBuild += "-P:printplugin:oversrc"
   ) settings(publishSettings:_*)) //settings(websiteSettings:_*) settings(bcSettings:_*))
 
   /*def bcSettings: Seq[Setting[_]] = mimaDefaultSettings ++ Seq(
