@@ -22,8 +22,6 @@ object ArmDef extends Build {
     autoCompilerPlugins := true,
     addContinuations,
     scalacOptions += "-P:continuations:enable",
-    libraryDependencies in ThisBuild += compilerPlugin("test.org" %% "printplugin" % "1.0"),
-    scalacOptions in ThisBuild += "-P:printplugin:oversrc"
   ) settings(publishSettings:_*) settings(websiteSettings:_*)) settings(bcSettings:_*)
 
   def bcSettings: Seq[Setting[_]] = mimaDefaultSettings ++ Seq(
