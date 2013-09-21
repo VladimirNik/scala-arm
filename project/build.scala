@@ -22,7 +22,7 @@ object ArmDef extends Build {
     autoCompilerPlugins := true,
     addContinuations,
     scalacOptions += "-P:continuations:enable",
-    libraryDependencies in ThisBuild += compilerPlugin("test.org" %% "printplugin" % "1.0"),
+    libraryDependencies in ThisBuild += compilerPlugin("org.scala-lang.plugins" %% "printplugin" % "0.2.0"),
     scalacOptions in ThisBuild += "-P:printplugin:oversrc"
   ) settings(publishSettings:_*) settings(websiteSettings:_*)) settings(bcSettings:_*)
 
